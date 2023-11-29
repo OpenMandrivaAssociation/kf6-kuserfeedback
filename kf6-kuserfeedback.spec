@@ -42,6 +42,7 @@ BuildRequires: gperf
 BuildRequires: bison
 BuildRequires: flex
 BuildRequires: php-cli
+BuildRequires: qdoc
 Requires: %{libname} = %{EVRD}
 
 %description
@@ -110,7 +111,6 @@ done
 %files -f %{name}.lang
 %{_bindir}/UserFeedbackConsole
 %{_bindir}/userfeedbackctl
-%{_datadir}/KDE/UserFeedbackConsole
 %{_datadir}/applications/org.kde.kuserfeedback-console.desktop
 %{_datadir}/metainfo/org.kde.kuserfeedback-console.appdata.xml
 %{_datadir}/qlogging-categories6/org_kde_UserFeedback.categories
@@ -120,6 +120,8 @@ done
 %{_includedir}/KF6/KUserFeedbackCore
 %{_libdir}/cmake/KF6UserFeedback
 %{_qtdir}/mkspecs/modules/qt_KF6UserFeedbackCore.pri
+# Contains QCH docs
+%{_datadir}/KDE/UserFeedbackConsole
 
 %files -n %{libname}
 %{_libdir}/libKF6UserFeedbackCore.so*
