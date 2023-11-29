@@ -122,7 +122,10 @@ done
 %{_libdir}/cmake/KF6UserFeedback
 %{_qtdir}/mkspecs/modules/qt_KF6UserFeedbackCore.pri
 # Contains QCH docs
-%{_datadir}/KDE/UserFeedbackConsole
+# FIXME goes missing in abf because buildroots are
+# installed with --nodocs and UFC needs the qdoc
+# templates
+%optional %{_datadir}/KDE/UserFeedbackConsole
 
 %files -n %{libname}
 %{_libdir}/libKF6UserFeedbackCore.so*
