@@ -30,11 +30,18 @@ BuildRequires: cmake(Qt6Qml)
 BuildRequires: cmake(Qt6GuiTools)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(Qt6DBusTools)
+BuildRequires: cmake(Qt6Charts)
+BuildRequires: cmake(Qt6Svg)
+BuildRequires: cmake(Qt6PrintSupport)
+BuildRequires: cmake(Qt6Help)
 BuildRequires: doxygen
 BuildRequires: cmake(Qt6ToolsTools)
 BuildRequires: cmake(Qt6)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: gperf
+BuildRequires: bison
+BuildRequires: flex
+BuildRequires: php-cli
 Requires: %{libname} = %{EVRD}
 
 %description
