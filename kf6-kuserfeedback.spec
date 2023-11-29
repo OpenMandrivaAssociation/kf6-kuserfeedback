@@ -43,6 +43,7 @@ BuildRequires: bison
 BuildRequires: flex
 BuildRequires: php-cli
 BuildRequires: qdoc
+BuildRequires: qt6-qtbase-doc
 Requires: %{libname} = %{EVRD}
 
 %description
