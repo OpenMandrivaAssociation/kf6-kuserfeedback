@@ -34,6 +34,7 @@ BuildRequires: cmake(Qt6Charts)
 BuildRequires: cmake(Qt6Svg)
 BuildRequires: cmake(Qt6PrintSupport)
 BuildRequires: cmake(Qt6Help)
+BuildRequires: gettext
 BuildRequires: doxygen
 BuildRequires: cmake(Qt6ToolsTools)
 BuildRequires: cmake(Qt6)
