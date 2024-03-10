@@ -8,7 +8,7 @@
 
 Name: kf6-kuserfeedback
 Version: 6.0.0
-Release: %{?git:0.%{git}.}2
+Release: %{?git:0.%{git}.}3
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kuserfeedback/-/archive/master/kuserfeedback-master.tar.bz2#/kuserfeedback-%{git}.tar.bz2
 %else
@@ -119,12 +119,12 @@ done
 
 %files -f %{name}.lang
 %{_bindir}/userfeedbackctl
-%{_datadir}/applications/org.kde.kuserfeedback-console.desktop
+%{_datadir}/qlogging-categories6/org_kde_UserFeedback.categories
 
 %files console -f %{name}-console.lang
 %{_bindir}/UserFeedbackConsole
 %{_datadir}/metainfo/org.kde.kuserfeedback-console.appdata.xml
-%{_datadir}/qlogging-categories6/org_kde_UserFeedback.categories
+%{_datadir}/applications/org.kde.kuserfeedback-console.desktop
 
 %files -n %{devname}
 %{_includedir}/KF6/KUserFeedback
