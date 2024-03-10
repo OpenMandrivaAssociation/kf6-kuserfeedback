@@ -8,7 +8,7 @@
 
 Name: kf6-kuserfeedback
 Version: 6.0.0
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kuserfeedback/-/archive/master/kuserfeedback-master.tar.bz2#/kuserfeedback-%{git}.tar.bz2
 %else
@@ -87,6 +87,13 @@ Development files (Headers etc.) for %{name}.
 KUserFeedback is a library for collecting user feedback.
 This package provides the development files for the GUI components.
 
+%package console
+Summary: Tool for working with UserFeedback servers
+Requires: %{name} = %{EVRD}
+
+%description console
+Tool for working with UserFeedback servers
+
 %prep
 %autosetup -p1 -n kuserfeedback-%{?git:master}%{!?git:%{version}}
 %cmake \
@@ -106,14 +113,16 @@ D="$(pwd)"
 # So for now, let's do its job manually
 cd %{buildroot}%{_datadir}/locale
 for i in *; do
-	[ -e $i/LC_MESSAGES/userfeedbackconsole6_qt.qm ] && echo "%%lang($i) %{_datadir}/locale/$i/LC_MESSAGES/userfeedbackconsole6_qt.qm" >>$D/%{name}.lang
+	[ -e $i/LC_MESSAGES/userfeedbackconsole6_qt.qm ] && echo "%%lang($i) %{_datadir}/locale/$i/LC_MESSAGES/userfeedbackconsole6_qt.qm" >>$D/%{name}-console.lang
 	[ -e $i/LC_MESSAGES/userfeedbackprovider6_qt.qm ] && echo "%%lang($i) %{_datadir}/locale/$i/LC_MESSAGES/userfeedbackprovider6_qt.qm" >>$D/%{name}.lang
 done
 
 %files -f %{name}.lang
-%{_bindir}/UserFeedbackConsole
 %{_bindir}/userfeedbackctl
 %{_datadir}/applications/org.kde.kuserfeedback-console.desktop
+
+%files console -f %{name}-console.lang
+%{_bindir}/UserFeedbackConsole
 %{_datadir}/metainfo/org.kde.kuserfeedback-console.appdata.xml
 %{_datadir}/qlogging-categories6/org_kde_UserFeedback.categories
 
