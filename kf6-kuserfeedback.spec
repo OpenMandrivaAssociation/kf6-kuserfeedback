@@ -8,7 +8,7 @@
 
 Name: kf6-kuserfeedback
 Version: 6.0.0
-Release: %{?git:0.%{git}.}3
+Release: %{?git:0.%{git}.}4
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kuserfeedback/-/archive/master/kuserfeedback-master.tar.bz2#/kuserfeedback-%{git}.tar.bz2
 %else
@@ -79,7 +79,8 @@ Library for collecting user feedback (GUI components)
 %package -n %{wdevname}
 Summary: Development files for %{name}
 Group: Development/C
-Requires: %{libname} = %{EVRD}
+Requires: %{devname} = %{EVRD}
+Requires: %{wlibname} = %{EVRD}
 
 %description -n %{wdevname}
 Development files (Headers etc.) for %{name}.
