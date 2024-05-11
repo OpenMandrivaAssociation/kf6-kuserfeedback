@@ -8,7 +8,7 @@
 #define git 20240217
 
 Name: kf6-kuserfeedback
-Version: 6.1.0
+Version: 6.2.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kuserfeedback/-/archive/master/kuserfeedback-master.tar.bz2#/kuserfeedback-%{git}.tar.bz2
