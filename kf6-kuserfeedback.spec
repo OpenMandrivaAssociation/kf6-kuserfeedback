@@ -8,7 +8,7 @@
 #define git 20240217
 
 Name: kf6-kuserfeedback
-Version: 6.27.0
+Version: 6.28.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kuserfeedback/-/archive/master/kuserfeedback-master.tar.bz2#/kuserfeedback-%{git}.tar.bz2
@@ -90,7 +90,7 @@ KUserFeedback is a library for collecting user feedback.
 This package provides the development files for the GUI components.
 
 %prep
-%autosetup -p1 -n kuserfeedback-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n kuserfeedback-6.28.0
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
