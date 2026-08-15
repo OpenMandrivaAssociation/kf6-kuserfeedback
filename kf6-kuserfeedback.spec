@@ -8,7 +8,7 @@
 #define git 20240217
 
 Name: kf6-kuserfeedback
-Version: 6.28.0
+Version: 6.29.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kuserfeedback/-/archive/master/kuserfeedback-master.tar.bz2#/kuserfeedback-%{git}.tar.bz2
@@ -47,6 +47,8 @@ BuildRequires: php-cli
 BuildRequires: qdoc
 BuildRequires: qt6-qtbase-doc
 Requires: %{libname} = %{EVRD}
+BuildSystem:	cmake
+BuildOption:	-DBUILD_QCH:BOOL=ON
 
 %description
 Library for collecting user feedback
@@ -89,19 +91,8 @@ Development files (Headers etc.) for %{name}.
 KUserFeedback is a library for collecting user feedback.
 This package provides the development files for the GUI components.
 
-%prep
-%autosetup -p1 -n kuserfeedback-6.28.0
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
 %install
-%ninja_install -C build
+%ninja_install -C _OMV_rpm_build
 
 D="$(pwd)"
 # FIXME %%find_lang doesn't do the right thing for QM files inside LC_MESSAGES
